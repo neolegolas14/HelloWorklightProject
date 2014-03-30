@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>HelloWorklight</title>
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    		<link rel="shortcut icon" href="images/favicon.png">
+    		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    		<link rel="stylesheet" href="css/main.css">
+    		<!-- <script>window.$ = window.jQuery = WLJQ;</script> -->
+    		<script src="js/jquery-1.11.0.min.js"></script>
+    	</head>
+    	<body id="content">
+    		<!--application UI goes here-->
+    		<p>Hello Worklight</p>
+    		<button id="button1" name="Click ME" onclick="getCourseData()">CLick ME</button>
+    		<div id="udemyTitleData"></div>
+    		<script src="js/initOptions.js"></script>
+    		<script src="js/main.js"></script>
+    		<script src="js/messages.js"></script>
+    		<script type="text/javascript">
+    			function getCourseData()
+    			{
+    			
+						if(!window.jQuery)
+						{
+						   alert('no jquery');
+						}
+	     				$.ajax({
+	    			url: "https://www.udemy.com/api-1.1/courses/33", 
+	    			type: "GET",
+	    			success: function(data){
+	    				$("#udemyTitleData").innerHTML = ''+data;
+	    			},
+	    			error: function (x) {
+     							   alert(x.status);
+    								}
+					});
+	    			//alert('here'); 
+    			}
+    			
+    			/* $( document ).ready(
+    			document.getElementById("udemyTitleData").innerHTML="<p>Whatever</p>"; */
+    			/* $("udemyTitleData").html("<h1>Loading...</h1>"); */
+/* 	    			 */
+    		
+    		</script>
+    	</body>
+</html>
